@@ -1,0 +1,115 @@
+<UserControl
+    x:Class="SmartHomeApp.UI.Views.LoungeAndKitchenView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="using:SmartHomeApp.UI.Controls"
+    mc:Ignorable="d">
+
+    <Border
+        Background="Black"
+        CornerRadius="25">
+        <Border.Effect>
+            <DropShadowDirectionEffect
+                BlurRadius="20"
+                Opacity="0.5"
+                ShadowDepth="1" />
+        </Border.Effect>
+
+        <Border.RenderTransform>
+            <TranslateTransform Y="0" />
+        </Border.RenderTransform>
+
+        <Border CornerRadius="25">
+            <Border.Background>
+                <ImageBrush
+                    Opacity="0.6"
+                    Source="/Assets/Pictures/p2.jpg"
+                    Stretch="Fill" />
+            </Border.Background>
+            <Grid ColumnDefinitions="*,Auto">
+                <StackPanel
+                    Margin="60,0,0,0"
+                    VerticalAlignment="Center">
+                    <TextBlock
+                        FontSize="22"
+                        Foreground="White"
+                        Text="Controlling" />
+                    <TextBlock
+                        Margin="0,10"
+                        FontSize="36"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="Lounge and Kitchen"
+                        TextWrapping="Wrap" />
+
+                    <TextBlock
+                        FontSize="32"
+                        Foreground="White">
+                        <Run Text="32" />
+                        <Run
+                            FontSize="26"
+                            FontWeight="Thin"
+                            Text="℃" />
+                    </TextBlock>
+
+                    <TextBlock
+                        Margin="15,0,0,0"
+                        FontSize="12"
+                        Foreground="White"
+                        Text="Clelecious" />
+
+                </StackPanel>
+                <StackPanel
+                    Grid.Column="1"
+                    Margin="0,0,50,0"
+                    VerticalAlignment="Center">
+
+                    <Grid
+                        ColumnDefinitions="*,*"
+                        RowDefinitions="*,*">
+
+                        <uc:Card
+                            Title="Refridgerator"
+                            Margin="0,0,8,8"
+                            ImageOff="/Assets/Pictures/fridge_off.png"
+                            ImageOn="/Assets/Pictures/fridge_on.png" />
+                        <uc:Card
+                            Title="Temprature"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="8,0,0,8"
+                            ImageOff="/Assets/Pictures/electric_off.png"
+                            ImageOn="/Assets/Pictures/electric_on.png" />
+                        <uc:Card
+                            Title="Air Conditioner"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="0,8,8,0"
+                            ImageOff="/Assets/Pictures/cordinator_off.png"
+                            ImageOn="/Assets/Pictures/cordinator_on.png" />
+                        <uc:Card
+                            Title="Lights"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="8,8,0,0"
+                            ImageOff="/Assets/Pictures/light_off.png"
+                            ImageOn="/Assets/Pictures/light_on.png" />
+
+                    </Grid>
+
+                    <uc:AddButton
+                        Title="Add New Room"
+                        Grid.Column="1"
+                        Margin="0,50,0,0"
+                        HorizontalAlignment="Center" />
+
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
+    </Border>
+
+</UserControl>

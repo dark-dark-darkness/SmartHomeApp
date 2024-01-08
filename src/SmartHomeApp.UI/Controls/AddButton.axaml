@@ -1,0 +1,64 @@
+<UserControl
+    x:Class="SmartHomeApp.UI.Controls.AddButton"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="addButton"
+    mc:Ignorable="d">
+
+    <UserControl.Styles>
+
+        <Style Selector="Button">
+            <Setter Property="Background" Value="#ffffff" />
+            <Setter Property="Foreground" Value="#00192e" />
+            <Setter Property="Padding" Value="0 3" />
+            <Setter Property="Margin" Value="0 0 0 5" />
+            <Setter Property="Height" Value="90" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="CornerRadius" Value="45" />
+
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="#e0e0e0" />
+            </Style>
+        </Style>
+
+
+    </UserControl.Styles>
+
+
+    <Button
+        Width="300"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Top"
+        Command="{Binding #addButton.Command}"
+        CommandParameter="{Binding #addButton.CommandParameter}">
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+
+            <TextBlock
+                VerticalAlignment="Center"
+                Text="{Binding #addButton.Title}" />
+
+            <Border
+                Width="37"
+                Height="37"
+                Margin="20,0,0,0"
+                Padding="10"
+                HorizontalAlignment="Right"
+                Background="#3256f1"
+                CornerRadius="50">
+                <Image Source="/Assets/Pictures/add.png" />
+            </Border>
+
+        </StackPanel>
+
+
+    </Button>
+
+
+</UserControl>

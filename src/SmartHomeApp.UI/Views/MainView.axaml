@@ -1,0 +1,87 @@
+<UserControl
+    x:Class="SmartHomeApp.UI.Views.MainView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="using:SmartHomeApp.UI.Controls"
+    xmlns:view="using:SmartHomeApp.UI.Views"
+    xmlns:vm="using:SmartHomeApp.UI.ViewModels"
+    Padding="30"
+    d:DesignHeight="720"
+    d:DesignWidth="1080"
+    x:DataType="vm:MainViewModel"
+    Background="#ffffff"
+    CornerRadius="25"
+    mc:Ignorable="d">
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
+
+
+    <Grid ColumnDefinitions="80,*">
+
+        <!--  Menu  -->
+        <Border
+            Background="#3253f1"
+            CornerRadius="10">
+            <Border.Effect>
+                <DropShadowDirectionEffect
+                    BlurRadius="20"
+                    Opacity="0.4"
+                    ShadowDepth="1" />
+            </Border.Effect>
+
+            <Grid>
+                <StackPanel
+                    Margin="15"
+                    Spacing="20">
+
+                    <Button
+                        Background="White"
+                        Classes="menuButton">
+                        <Image Source="/Assets/Pictures/_home2.png" />
+                    </Button>
+                    <Button Classes="menuButton">
+                        <Image Source="/Assets/Pictures/_bed.png" />
+                    </Button>
+                    <Button Classes="menuButton">
+                        <Image Source="/Assets/Pictures/_users.png" />
+                    </Button>
+                    <Button Classes="menuButton">
+                        <Image Source="/Assets/Pictures/_shield.png" />
+                    </Button>
+                    <Button Classes="menuButton">
+                        <Image Source="/Assets/Pictures/_location.png" />
+                    </Button>
+                    <Button Classes="menuButton">
+                        <Image Source="/Assets/Pictures/_chart.png" />
+                    </Button>
+                    <Button Classes="menuButton">
+                        <Image Source="/Assets/Pictures/_setting.png" />
+                    </Button>
+                </StackPanel>
+
+                <Button
+                    Margin="15"
+                    VerticalAlignment="Bottom"
+                    Classes="menuButton"
+                    Click="Button_Click">
+                    <Image Source="/Assets/Pictures/_logout.png" />
+                </Button>
+
+            </Grid>
+
+
+        </Border>
+
+
+        <!--  Page 1  -->
+        <view:LoungeAndKitchenView
+            Grid.Column="1"
+            Classes="page" />
+
+    </Grid>
+
+
+</UserControl>

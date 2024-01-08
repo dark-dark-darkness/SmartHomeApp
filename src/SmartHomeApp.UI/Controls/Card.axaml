@@ -1,0 +1,131 @@
+<UserControl
+    x:Class="SmartHomeApp.UI.Controls.Card"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="card"
+    mc:Ignorable="d">
+
+
+    <UserControl.Styles>
+        <Style Selector="ToggleButton:checked">
+
+            <Style Selector="^ Border">
+                <Setter Property="Background" Value="#3256f1" />
+            </Style>
+
+            <Style Selector="^ TextBlock.toggleText">
+                <Setter Property="Text" Value="On" />
+            </Style>
+
+            <Style Selector="^ TextBlock.toggleColor">
+                <Setter Property="Foreground" Value="#ffffff" />
+            </Style>
+
+            <Style Selector="^ Image">
+                <Setter Property="Source" Value="{Binding #card.ImageOn}" />
+            </Style>
+
+        </Style>
+
+        <Style Selector="ToggleButton:unchecked">
+
+            <Style Selector="^ TextBlock.toggleText">
+                <Setter Property="Text" Value="Off" />
+                <Setter Property="Foreground" Value="#3256f1" />
+            </Style>
+
+            <Style Selector="^ TextBlock.toggleColor">
+                <Setter Property="Foreground" Value="#2f2c37" />
+            </Style>
+
+            <Style Selector="^ ToggleSwitch">
+                <Setter Property="Foreground" Value="#2f2c37" />
+            </Style>
+
+            <Style Selector="^ Image">
+                <Setter Property="Source" Value="{Binding #card.ImageOff}" />
+            </Style>
+
+        </Style>
+
+        <Style Selector="ToggleButton">
+            <Setter Property="Focusable" Value="False" />
+        </Style>
+
+        <Style Selector="Border">
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Background" Value="#efefee" />
+
+            <Style Selector="^.horizontal">
+                <Setter Property="Width" Value="190" />
+            </Style>
+
+        </Style>
+
+        <Style Selector="Border">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition
+                        Property="Background"
+                        Duration="0:0:0:.2" />
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="TextBlock">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition
+                        Property="Foreground"
+                        Duration="0:0:0:.2" />
+                </Transitions>
+            </Setter>
+        </Style>
+
+    </UserControl.Styles>
+
+    <ToggleButton
+        Background="White"
+        IsChecked="{Binding #card.IsChecked, Mode=TwoWay}">
+        <ToggleButton.Template>
+            <ControlTemplate>
+                <Border
+                    Height="150"
+                    Padding="20"
+                    HorizontalAlignment="Stretch"
+                    Classes.horizontal="{Binding #card.IsHorizontal}"
+                    CornerRadius="25">
+                    <Border.Effect>
+                        <DropShadowDirectionEffect
+                            BlurRadius="20"
+                            Opacity="0.5"
+                            ShadowDepth="1" />
+                    </Border.Effect>
+                    <Grid>
+                        <TextBlock
+                            Margin="0,7.,0,0"
+                            VerticalAlignment="Top"
+                            Classes="toggleColor"
+                            FontWeight="SemiBold"
+                            Text="{Binding #card.Title}" />
+                        <Image
+                            Width="40"
+                            Height="40"
+                            Margin="10,10,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" />
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Classes="toggleText"
+                            FontWeight="SemiBold" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </ToggleButton.Template>
+    </ToggleButton>
+
+
+</UserControl>

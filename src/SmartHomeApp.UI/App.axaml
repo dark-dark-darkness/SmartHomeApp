@@ -1,0 +1,53 @@
+<Application
+    x:Class="SmartHomeApp.UI.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    RequestedThemeVariant="Default">
+
+    <Application.Styles>
+        <FluentTheme />
+
+
+        <Style Selector=":is(Window)">
+            <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+            <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
+            <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" />
+            <Setter Property="SystemDecorations" Value="None" />
+            <Setter Property="CanResize" Value="True" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush
+                        Opacity="0"
+                        Color="White" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.menuButton">
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Focusable" Value="False" />
+
+            <Style Selector="^ /template/ Border">
+                <Setter Property="Background" Value="{Binding $parent[Border].Background, Mode=OneWay}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="1" />
+
+                <Style Selector="^ ContentPresenter">
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                </Style>
+            </Style>
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="#ffffff" />
+            </Style>
+        </Style>
+
+        <Style Selector=":is(Control).page">
+            <Setter Property="Margin" Value="30 0 0 0" />
+        </Style>
+    </Application.Styles>
+
+
+</Application>
